@@ -13,7 +13,8 @@ export const usePagination = () => {
   const currentPage = Number(page) || 1;
 
   const hundlePage = (e) => {
-    navigate(`/${e.target.value}`)
+    navigate(`/${e.target.value}`);
+    console.log('navigate');
     dispatch(
       loadItems({
         page: e.target.value,

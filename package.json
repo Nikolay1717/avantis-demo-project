@@ -2,7 +2,7 @@
   "name": "valantis",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://nikolay1717.github.io/avantis-demo-project",
+  "author": "Nikolay Kuznetsov",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
     "axios": "^1.6.7",
