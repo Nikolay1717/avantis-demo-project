@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/avantis-demo-project/static/css/main.d5289b2f.css",
+    "main.js": "/avantis-demo-project/static/js/main.310df161.js",
+    "index.html": "/avantis-demo-project/index.html",
+    "main.d5289b2f.css.map": "/avantis-demo-project/static/css/main.d5289b2f.css.map",
+    "main.310df161.js.map": "/avantis-demo-project/static/js/main.310df161.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d5289b2f.css",
+    "static/js/main.310df161.js"
+  ]
+}
