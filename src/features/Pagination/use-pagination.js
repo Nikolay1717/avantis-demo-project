@@ -14,7 +14,6 @@ export const usePagination = () => {
 
   const hundlePage = (e) => {
     navigate(`/${e.target.value}`);
-    console.log('navigate');
     dispatch(
       loadItems({
         page: e.target.value,
