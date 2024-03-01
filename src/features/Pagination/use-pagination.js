@@ -1,16 +1,22 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { selectFilter } from "../Filter/filter-slice";
-import { selectNumberOfPages } from "./pagination-slice";
+import { loadNumberOfPages, selectPaginationInfo } from "./pagination-slice";
 import { loadItems } from "../Cards/cards-slice";
+import { useEffect } from "react";
 
 export const usePagination = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const filter = useSelector(selectFilter);
-  const numberOfPages = useSelector(selectNumberOfPages);
+  const {status, error, retryCount, numberOfPages} = useSelector(selectPaginationInfo);
   const {page} = useParams();
   const currentPage = Number(page) || 1;
+
+  useEffect(() => {
+    if ((status === "idle" || status === "rejected") && retryCount < 3)
+      dispatch(loadNumberOfPages(filter));
+  }, [status, retryCount, filter, dispatch]);
 
   const hundlePage = (e) => {
     navigate(`/${e.target.value}`);
@@ -22,5 +28,5 @@ export const usePagination = () => {
     );
   };
 
-  return {hundlePage, currentPage, numberOfPages};
+  return {hundlePage, currentPage, numberOfPages, error};
 }

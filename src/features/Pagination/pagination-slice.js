@@ -28,6 +28,7 @@ const paginationSlice = createSlice({
         state.status = 'rejected';
         state.error = 'loading number of pages error';
         state.retryCount += 1;
+        console.log(state.error, `(attempt ${state.retryCount})`);
       })
       .addCase(loadNumberOfPages.fulfilled, (state, action) => {
         state.status = 'received';
@@ -41,5 +42,6 @@ const paginationSlice = createSlice({
 export const paginationReducer = paginationSlice.reducer;
 
 // selectors
+export const selectPaginationInfo = state => state.pagination;
 export const selectNumberOfPages = state => state.pagination.numberOfPages;
 export const selectCurrentPage = state => state.pagination.currentPage;

@@ -1,9 +1,11 @@
 import { usePagination } from "./use-pagination";
 
 function Pagination() {
-  const {hundlePage, currentPage, numberOfPages} = usePagination();
+  const {hundlePage, currentPage, numberOfPages, error} = usePagination();
 
-  return (numberOfPages > 0 &&
+  return <>
+    {error && <h4 className="text-center">{error}</h4>}
+    {numberOfPages > 0 &&
     <div className="d-flex justify-content-center">
       <nav className="page-navigation" aria-label="Page navigation">
         <ul className="pagination d-flex align-items-center">
@@ -24,8 +26,8 @@ function Pagination() {
           </li>
         </ul>
       </nav>
-    </div>
-  );
+    </div>}
+  </>
 }
 
 export default Pagination;

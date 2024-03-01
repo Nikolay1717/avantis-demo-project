@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { loadItems, selectItems } from "./cards-slice";
 import { useEffect } from "react";
-import { loadNumberOfPages } from "../Pagination/pagination-slice";
 import { selectFilter } from "../Filter/filter-slice";
 import { useParams } from "react-router-dom";
 
@@ -19,11 +18,6 @@ export const useItems = () => {
         filter,
       }));
   }, [status, retryCount, currentPage, filter, dispatch]);
-
-  useEffect(() => {
-    dispatch(loadNumberOfPages(filter))
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return {status, error, items};
 }
